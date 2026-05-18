@@ -1,0 +1,34 @@
+# =====================================================================
+# Dependencies cho TREC Question Classification API (FastAPI).
+#
+# ⚠️  CHÚ Ý PHIÊN BẢN — các pin sau đây quan trọng:
+#   - Python 3.9 (allennlp 2.10.x KHÔNG hỗ trợ Python >= 3.10)
+#   - torch < 1.13 (allennlp 2.10.1 yêu cầu)
+#   - pydantic < 2  (allennlp dùng pydantic v1; fastapi < 0.100 hỗ trợ v1)
+#   - typing-extensions < 4.6  (spacy 3.3 dùng cho allennlp)
+#
+# Cài torch GPU (CUDA 11.6) từ index riêng:
+#   pip install torch==1.12.1+cu116 -f https://download.pytorch.org/whl/torch_stable.html
+# Hoặc CPU-only:
+#   pip install torch==1.12.1
+# =====================================================================
+
+# Core ML
+torch==1.12.1
+allennlp==2.10.1
+
+# Translator (VI -> EN)
+transformers>=4.30,<4.40
+sentencepiece>=0.1.96
+tokenizers>=0.13
+
+# Web framework (pydantic v1 era)
+fastapi<0.100
+pydantic<2
+typing-extensions<4.6
+uvicorn[standard]>=0.20
+
+# Utilities
+h5py>=3.7
+numpy<2
+nltk>=3.7

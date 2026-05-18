@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TREC Question Classification - Demo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white; border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px; max-width: 680px; width: 100%;
+        }
+        h1 { text-align: center; color: #333; margin-bottom: 6px; font-size: 26px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 24px; font-size: 14px; }
+        .input-group { margin-bottom: 16px; }
+        label { display: block; margin-bottom: 8px; color: #333; font-weight: 600; font-size: 14px; }
+        textarea {
+            width: 100%; padding: 14px; border: 2px solid #e0e0e0;
+            border-radius: 10px; font-size: 15px; font-family: inherit;
+            resize: vertical; min-height: 90px; transition: border-color 0.3s;
+        }
+        textarea:focus { outline: none; border-color: #667eea; }
+        .examples {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+        }
+        .examples button.example-btn {
+            background: #f0f0fa; color: #555; border: 1px solid #ddd;
+            border-radius: 18px; padding: 6px 12px; font-size: 12px;
+            cursor: pointer; transition: all 0.2s; width: auto;
+            font-weight: 400;
+        }
+        .examples button.example-btn:hover {
+            background: #667eea; color: white; transform: none; box-shadow: none;
+        }
+        button#predictBtn {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border: none; border-radius: 10px;
+            font-size: 17px; font-weight: 600; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button#predictBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
+        button#predictBtn:active { transform: translateY(0); }
+        button#predictBtn:disabled { background: #ccc; cursor: not-allowed; }
+
+        .hint { text-align: center; color: #888; font-size: 12px; margin-top: 12px; }
+
+        .result-section {
+            margin-top: 26px; padding: 20px;
+            background: #f8f9fa; border-radius: 15px; display: none;
+        }
+        .result-section.show { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-title {
+            font-size: 17px; font-weight: 600; color: #333;
+            margin-bottom: 12px; padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .result-item {
+            display: flex; justify-content: space-between;
+            align-items: center;
+            padding: 8px 0; border-bottom: 1px solid #e0e0e0;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-label { color: #666; font-size: 14px; }
+        .result-value { color: #333; font-weight: 600; font-size: 15px; }
+        .confidence-bar {
+            height: 8px; background: #e0e0e0; border-radius: 4px;
+            overflow: hidden; margin-top: 8px;
+        }
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s;
+        }
+        .translation-section {
+            background: #e8f4fd; padding: 14px; border-radius: 10px;
+            margin-bottom: 14px; display: none;
+        }
+        .translation-section.show { display: block; }
+        .translation-text { font-style: italic; color: #444; margin-top: 4px; }
+
+        .loader {
+            display: inline-block; width: 16px; height: 16px;
+            border: 3px solid #fff5; border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .error-message {
+            color: #dc3545; background: #f8d7da;
+            padding: 12px; border-radius: 10px;
+            margin-top: 16px; display: none; font-size: 14px;
+        }
+
+        .class-badge {
+            display: inline-block; padding: 5px 14px;
+            border-radius: 18px; font-weight: 700; font-size: 14px;
+            color: white; letter-spacing: 0.5px;
+        }
+        .model-picker { display: flex; flex-direction: column; gap: 8px; }
+        .model-picker label {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 12px; border: 2px solid #e0e0e0; border-radius: 10px;
+            cursor: pointer; transition: all 0.2s; font-weight: 400;
+        }
+        .model-picker label:hover { border-color: #667eea33; background: #fafaff; }
+        .model-picker input[type=radio]:checked + b { color: #667eea; }
+        .model-picker label:has(input:checked) { border-color: #667eea; background: #f5f3ff; }
+        .acc-tag { font-size: 11px; color: #888; margin-left: 6px;
+                   background: #eee; padding: 2px 8px; border-radius: 12px; }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .compare-card {
+            border: 2px solid #e0e0e0; border-radius: 12px; padding: 14px;
+        }
+        .compare-card h3 { font-size: 14px; margin-bottom: 10px; color: #555; }
+        .compare-card.winner { border-color: #28a745; background: #f0fff4; }
+        @media (max-width: 540px) { .compare-grid { grid-template-columns: 1fr; } }
+
+        .class-ABBR { background: #17a2b8; }
+        .class-DESC { background: #28a745; }
+        .class-ENTY { background: #20c997; }
+        .class-HUM  { background: #fd7e14; }
+        .class-LOC  { background: #6f42c1; }
+        .class-NUM  { background: #e83e8c; }
+
+        .class-desc-text { font-size: 12px; color: #777; margin-top: 4px; text-align: right; }
+        .prob-row { padding: 6px 0; }
+        .prob-row .prob-name { display: inline-block; width: 80px; font-size: 13px; color: #555; }
+        .prob-row .prob-bar-wrap {
+            display: inline-block; width: calc(100% - 140px);
+            vertical-align: middle; height: 8px;
+            background: #e9ecef; border-radius: 4px; overflow: hidden;
+            margin: 0 8px;
+        }
+        .prob-row .prob-bar { height: 100%; }
+        .prob-row .prob-val {
+            display: inline-block; width: 50px; text-align: right;
+            font-size: 12px; color: #444; font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 TREC Question Classification</h1>
+        <p class="subtitle">Phân loại câu hỏi 6 nhóm — hỗ trợ <b>Tiếng Việt</b> & <b>English</b></p>
+
+        <div class="input-group">
+            <label for="question">Nhập câu hỏi của bạn:</label>
+            <textarea id="question" placeholder="Ví dụ: NASA là viết tắt của gì? — hoặc — What is photosynthesis?"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Mô hình:</label>
+            <div class="model-picker">
+                <label><input type="radio" name="model" value="bilstm" checked>
+                    <b>Model 2 — BiLSTM + ELMo</b> <span class="acc-tag">94.8%</span></label>
+                <label><input type="radio" name="model" value="cnn">
+                    <b>Model 1 — CNN-Text</b> <span class="acc-tag">84.8%</span></label>
+                <label><input type="radio" name="model" value="both">
+                    <b>So sánh cả hai</b></label>
+            </div>
+        </div>
+
+        <div class="examples">
+            <button class="example-btn" onclick="setExample('NASA là viết tắt của gì?')">🇻🇳 NASA là viết tắt của gì?</button>
+            <button class="example-btn" onclick="setExample('Ai là tổng thống đầu tiên của nước Mỹ?')">🇻🇳 Ai là tổng thống đầu tiên...</button>
+            <button class="example-btn" onclick="setExample('Tháp Eiffel ở đâu?')">🇻🇳 Tháp Eiffel ở đâu?</button>
+            <button class="example-btn" onclick="setExample('Khoảng cách từ Hà Nội đến Đà Nẵng là bao nhiêu?')">🇻🇳 Khoảng cách Hà Nội - Đà Nẵng?</button>
+            <button class="example-btn" onclick="setExample('What is photosynthesis ?')">🇬🇧 What is photosynthesis?</button>
+            <button class="example-btn" onclick="setExample('Who was Galileo ?')">🇬🇧 Who was Galileo?</button>
+        </div>
+
+        <button id="predictBtn" onclick="predict()">🔍 Phân loại câu hỏi</button>
+
+        <div class="hint">
+            Tự động phát hiện ngôn ngữ — câu tiếng Việt sẽ được dịch sang Anh bằng <code>vinai-translate-vi2en-v2</code>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <div id="resultSection" class="result-section">
+            <div class="result-title">Kết quả phân loại</div>
+
+            <div id="translationSection" class="translation-section">
+                <span class="result-label">🇻🇳 → 🇬🇧 Bản dịch tiếng Anh:</span>
+                <div id="translationText" class="translation-text"></div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-label">Loại câu hỏi:</span>
+                <div style="text-align: right;">
+                    <div id="predictedClass"></div>
+                    <div id="classLabel" class="class-desc-text"></div>
+                </div>
+            </div>
+
+            <div class="result-item" style="display: block;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="result-label">Độ tin cậy:</span>
+                    <span id="confidenceValue" class="result-value"></span>
+                </div>
+                <div class="confidence-bar"><div id="confidenceFill" class="confidence-fill"></div></div>
+            </div>
+
+            <div class="result-item">
+                <span class="result-label">Ngôn ngữ:</span>
+                <span id="languageValue" class="result-value"></span>
+            </div>
+
+            <div class="result-item">
+                <span class="result-label">Thời gian xử lý:</span>
+                <span id="processingTime" class="result-value"></span>
+            </div>
+
+            <div class="result-title" style="margin-top: 18px;">Xác suất từng lớp:</div>
+            <div id="probabilitiesList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+
+        const CLASS_COLORS = {
+            ABBR: '#17a2b8', DESC: '#28a745', ENTY: '#20c997',
+            HUM:  '#fd7e14', LOC:  '#6f42c1', NUM:  '#e83e8c',
+        };
+        const CLASS_NAMES = {
+            ABBR: 'Viết tắt (Abbreviation)',
+            DESC: 'Mô tả / định nghĩa (Description)',
+            ENTY: 'Sự vật / sự kiện (Entity)',
+            HUM:  'Người (Human)',
+            LOC:  'Địa điểm (Location)',
+            NUM:  'Số lượng / số đo (Numeric)',
+        };
+
+        function setExample(text) {
+            document.getElementById('question').value = text;
+            document.getElementById('question').focus();
+        }
+
+        function getSelectedModel() {
+            return document.querySelector('input[name="model"]:checked').value;
+        }
+
+        async function predict() {
+            const question = document.getElementById('question').value.trim();
+            const btn = document.getElementById('predictBtn');
+            const resultSection = document.getElementById('resultSection');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!question) {
+                showError('Vui lòng nhập câu hỏi!');
+                return;
+            }
+
+            const model = getSelectedModel();
+            errorMessage.style.display = 'none';
+            resultSection.classList.remove('show');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loader"></span> Đang xử lý...';
+
+            try {
+                const response = await fetch(API_BASE + '/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, model }),
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Có lỗi xảy ra!');
+                if (model === 'both') displayCompare(data);
+                else displayResult(data);
+            } catch (err) {
+                showError(err.message || 'Có lỗi xảy ra!');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '🔍 Phân loại câu hỏi';
+            }
+        }
+
+        function displayCompare(data) {
+            const tSection = document.getElementById('translationSection');
+            if (data.translation && data.language === 'vi') {
+                document.getElementById('translationText').textContent = data.translation;
+                tSection.classList.add('show');
+            } else {
+                tSection.classList.remove('show');
+            }
+
+            const cnn = data.cnn, bilstm = data.bilstm;
+            const winnerCnn = cnn.confidence >= bilstm.confidence;
+
+            const sideHtml = (title, r, isWinner) => {
+                const c = r.predicted_class;
+                const color = CLASS_COLORS[c] || '#667eea';
+                let probsRows = '';
+                Object.entries(r.all_probabilities)
+                      .sort((a,b)=>b[1]-a[1]).forEach(([cc, p]) => {
+                    const pct = (p*100).toFixed(1);
+                    const col = CLASS_COLORS[cc] || '#667eea';
+                    probsRows += `<div style="font-size:11px; padding:3px 0;">
+                        <span style="display:inline-block; width:40px; color:${col}; font-weight:600;">${cc}</span>
+                        <span style="display:inline-block; width:calc(100% - 90px); height:6px; background:#eee; border-radius:3px; overflow:hidden; vertical-align:middle;">
+                            <span style="display:block; height:100%; width:${pct}%; background:${col};"></span>
+                        </span>
+                        <span style="display:inline-block; width:40px; text-align:right;">${pct}%</span>
+                    </div>`;
+                });
+                return `
+                <div class="compare-card ${isWinner ? 'winner' : ''}">
+                    <h3>${title} ${isWinner ? '⭐' : ''}</h3>
+                    <div style="text-align:center; margin-bottom:10px;">
+                        <span class="class-badge" style="background:${color};">${c}</span>
+                        <div style="margin-top:6px; font-size:13px; color:#555;">${CLASS_NAMES[c] || c}</div>
+                        <div style="font-size:20px; font-weight:700; color:${color}; margin-top:4px;">
+                            ${(r.confidence*100).toFixed(2)}%
+                        </div>
+                    </div>
+                    ${probsRows}
+                </div>`;
+            };
+
+            const html = `<div class="compare-grid">
+                ${sideHtml('Model 1 — CNN-Text', cnn, winnerCnn && cnn.predicted_class !== bilstm.predicted_class)}
+                ${sideHtml('Model 2 — BiLSTM + ELMo', bilstm, !winnerCnn || cnn.predicted_class !== bilstm.predicted_class)}
+            </div>
+            <div style="text-align:center; padding:10px; font-size:13px; color:#666; margin-top:10px;">
+                ${cnn.predicted_class === bilstm.predicted_class
+                    ? `✅ Cả 2 model đồng thuận: <b>${cnn.predicted_class}</b>`
+                    : `⚠️ 2 model bất đồng — CNN: <b>${cnn.predicted_class}</b> vs BiLSTM: <b>${bilstm.predicted_class}</b>`}
+            </div>
+            <div class="result-item">
+                <span class="result-label">Ngôn ngữ:</span>
+                <span class="result-value">${({vi:'🇻🇳 Tiếng Việt (đã dịch)', en:'🇬🇧 English'})[data.language] || data.language}</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Thời gian xử lý:</span>
+                <span class="result-value">${data.processing_time_ms} ms</span>
+            </div>`;
+
+            // Replace single-result rendering with comparison view
+            document.getElementById('predictedClass').innerHTML = '';
+            document.getElementById('classLabel').textContent = '';
+            document.getElementById('confidenceValue').textContent = '';
+            document.getElementById('confidenceFill').style.width = '0%';
+            document.getElementById('languageValue').textContent = '';
+            document.getElementById('processingTime').textContent = '';
+            document.getElementById('probabilitiesList').innerHTML = html;
+
+            // Hide the single-result items, only show comparison
+            Array.from(document.querySelectorAll('#resultSection .result-item')).forEach(el => el.style.display = 'none');
+            document.getElementById('resultSection').classList.add('show');
+        }
+
+        function displayResult(data) {
+            // Restore single-result layout (in case previous render was compare)
+            Array.from(document.querySelectorAll('#resultSection .result-item')).forEach((el, i) => {
+                el.style.display = (i === 1) ? 'block' : 'flex';
+            });
+
+            const tSection = document.getElementById('translationSection');
+            if (data.translation && data.language === 'vi') {
+                document.getElementById('translationText').textContent = data.translation;
+                tSection.classList.add('show');
+            } else {
+                tSection.classList.remove('show');
+            }
+
+            const cls = data.predicted_class;
+            const color = CLASS_COLORS[cls] || '#667eea';
+            document.getElementById('predictedClass').innerHTML =
+                `<span class="class-badge" style="background:${color};">${cls}</span>`;
+            document.getElementById('classLabel').textContent = CLASS_NAMES[cls] || cls;
+
+            const conf = (data.confidence * 100).toFixed(2);
+            document.getElementById('confidenceValue').textContent = conf + ' %';
+            document.getElementById('confidenceFill').style.width = conf + '%';
+
+            const langNames = { vi: '🇻🇳 Tiếng Việt (đã dịch sang Anh)', en: '🇬🇧 English' };
+            document.getElementById('languageValue').textContent = langNames[data.language] || data.language;
+            document.getElementById('processingTime').textContent = data.processing_time_ms + ' ms';
+
+            let probsHtml = '';
+            Object.entries(data.all_probabilities)
+                  .sort((a, b) => b[1] - a[1])
+                  .forEach(([c, p]) => {
+                const pct = (p * 100).toFixed(1);
+                const cc = CLASS_COLORS[c] || '#667eea';
+                probsHtml += `
+                    <div class="prob-row">
+                        <span class="prob-name" style="color:${cc}; font-weight:600;">${c}</span>
+                        <span class="prob-bar-wrap">
+                            <span class="prob-bar" style="width:${pct}%; background:${cc};"></span>
+                        </span>
+                        <span class="prob-val">${pct}%</span>
+                    </div>`;
+            });
+            document.getElementById('probabilitiesList').innerHTML = probsHtml;
+
+            document.getElementById('resultSection').classList.add('show');
+        }
+
+        function showError(message) {
+            const el = document.getElementById('errorMessage');
+            el.textContent = '⚠️  ' + message;
+            el.style.display = 'block';
+        }
+
+        document.getElementById('question').addEventListener('keydown', e => {
+            if (e.ctrlKey && e.key === 'Enter') predict();
+        });
+    </script>
+</body>
+</html>

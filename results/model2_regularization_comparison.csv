@@ -1,0 +1,5 @@
+Config,Best Val Acc,Best Val Macro-F1,Train-Val gap (overfit)
+No regularization,89.49%,0.8902,+0.0819
+Dropout only (0.5),91.44%,0.9111,+0.0391
+Weight decay only,90.22%,0.9072,+0.0774
+Dropout + Weight decay,89.36%,0.8880,+0.0620

@@ -1,0 +1,4 @@
+Optimizer,Best Val Acc,Best Val Macro-F1
+SGD (momentum=0.9),90.46%,0.9104
+Adam,89.24%,0.8899
+AdamW,90.34%,0.9097

@@ -4,16 +4,31 @@ data/glove.6B.zip
 data/glove.6B.300d.txt
 data/elmo/elmo_weights.hdf5
 
-# Model checkpoints
-model/*.pt
+# Model checkpoints (>50MB, không commit vào git)
 *.pt
+*.pth
+*.hdf5
+*.bin
+*.safetensors
+
+# Archives (đóng gói deploy, không commit)
+*.zip
+*.tar.gz
+*.tar
+for_claude_report/
+for_claude_report*/
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
 .ipynb_checkpoints/
+.venv/
+.env
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Streamlit cache
+.streamlit/

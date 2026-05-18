@@ -1,0 +1,501 @@
+question,true_label,pred_label,correct
+how far is it from denver to aspen,NUM,NUM,True
+what county is modesto california in,LOC,ENTY,False
+who was galileo,HUM,HUM,True
+what is an atom,DESC,DESC,True
+when did hawaii become a state,NUM,NUM,True
+how tall is the sears building,NUM,NUM,True
+george bush purchased a small interest in which baseball team,HUM,HUM,True
+what is australia s national flower,ENTY,ABBR,False
+why does the moon turn orange,DESC,DESC,True
+what is autism,DESC,DESC,True
+what city had a world fair in 1900,LOC,LOC,True
+what person s head is on a dime,HUM,LOC,False
+what is the average weight of a yellow labrador,NUM,NUM,True
+who was the first man to fly across the pacific ocean,HUM,HUM,True
+when did idaho become a state,NUM,NUM,True
+what is the life expectancy for crickets,NUM,ABBR,False
+what metal has the highest melting point,ENTY,LOC,False
+who developed the vaccination against polio,HUM,HUM,True
+what is epilepsy,DESC,DESC,True
+what year did the titanic sink,NUM,NUM,True
+who was the first american to walk in space,HUM,HUM,True
+what is a biosphere,DESC,DESC,True
+what river in the us is known as the big muddy,LOC,LOC,True
+what is bipolar disorder,DESC,DESC,True
+what is cholesterol,DESC,DESC,True
+who developed the macintosh computer,HUM,HUM,True
+what is caffeine,DESC,DESC,True
+what imaginary line is halfway between the north and south poles,LOC,HUM,False
+where is john wayne airport,LOC,LOC,True
+what hemisphere is the philippines in,LOC,LOC,True
+what is the average speed of the horses at the kentucky derby,NUM,NUM,True
+where are the rocky mountains,LOC,LOC,True
+what are invertebrates,DESC,DESC,True
+what is the temperature at the center of the earth,NUM,NUM,True
+when did john f kennedy get elected as president,NUM,NUM,True
+how old was elvis presley when he died,NUM,NUM,True
+where is the orinoco river,LOC,LOC,True
+how far is the service line from the net in tennis,NUM,NUM,True
+how much fiber should you have per day,NUM,NUM,True
+how many great lakes are there,NUM,NUM,True
+material called linen is made from what plant,ENTY,HUM,False
+what is teflon,DESC,DESC,True
+what is amitriptyline,DESC,DESC,True
+what is a shaman,DESC,DESC,True
+what is the proper name for a female walrus,ENTY,ENTY,True
+what is a group of turkeys called,ENTY,ENTY,True
+how long did rip van winkle sleep,NUM,NUM,True
+what are triglycerides,DESC,DESC,True
+how many liters in a gallon,NUM,NUM,True
+what is the name of the chocolate company in san francisco,HUM,HUM,True
+what are amphibians,DESC,DESC,True
+who discovered x rays,HUM,HUM,True
+which comedian s signature line is can we talk,HUM,HUM,True
+what is fibromyalgia,DESC,ABBR,False
+what is done with worn or outdated flags,DESC,LOC,False
+what does cc in engines mean,DESC,DESC,True
+when did elvis presley die,NUM,NUM,True
+what is the capital of yugoslavia,LOC,LOC,True
+where is milan,LOC,LOC,True
+what is the speed hummingbirds fly,NUM,DESC,False
+what is the oldest city in the united states,LOC,LOC,True
+what was w c fields real name,HUM,HUM,True
+what river flows between fargo north dakota and moorhead minnesota,LOC,LOC,True
+what do bats eat,ENTY,ENTY,True
+what state did the battle of bighorn take place in,LOC,LOC,True
+who was abraham lincoln,HUM,HUM,True
+what do you call a newborn kangaroo,ENTY,ENTY,True
+what are spider veins,DESC,DESC,True
+what day and month did john lennon die,NUM,NUM,True
+what strait separates north america from asia,LOC,LOC,True
+what is the population of seattle,NUM,NUM,True
+how much was a ticket for the titanic,NUM,NUM,True
+what is the largest city in the world,LOC,LOC,True
+what american composer wrote the music for west side story,HUM,HUM,True
+where is the mall of the america,LOC,LOC,True
+what is the ph scale,DESC,DESC,True
+what type of currency is used in australia,ENTY,ENTY,True
+how tall is the gateway arch in st louis mo,NUM,NUM,True
+how much does the human adult female brain weigh,NUM,NUM,True
+who was the first governor of alaska,HUM,HUM,True
+what is a prism,DESC,DESC,True
+when was the first liver transplant,NUM,NUM,True
+who was elected president of south africa in 1994,HUM,HUM,True
+what is the population of china,NUM,NUM,True
+when was rosa parks born,NUM,NUM,True
+why is a ladybug helpful,DESC,DESC,True
+what is amoxicillin,DESC,DESC,True
+who was the first female united states representative,HUM,HUM,True
+what are xerophytes,DESC,DESC,True
+what country did ponce de leon come from,LOC,LOC,True
+the u s department of treasury first issued paper currency for the u s during which war,ENTY,HUM,False
+what is desktop publishing,DESC,DESC,True
+what is the temperature of the sun s surface,NUM,NUM,True
+what year did canada join the united nations,NUM,NUM,True
+what is the oldest university in the us,HUM,LOC,False
+where is prince edward island,LOC,LOC,True
+mercury what year was it discovered,NUM,NUM,True
+what is cryogenics,DESC,DESC,True
+what are coral reefs,DESC,DESC,True
+what is the longest major league baseball winning streak,ENTY,HUM,False
+what is neurology,DESC,DESC,True
+who invented the calculator,HUM,HUM,True
+how do you measure earthquakes,DESC,DESC,True
+who is duke ellington,HUM,HUM,True
+what county is phoenix az in,LOC,LOC,True
+what is a micron,DESC,DESC,True
+the sun s core what is the temperature,NUM,NUM,True
+what is the ohio state bird,ENTY,NUM,False
+when were william shakespeare s twins born,NUM,NUM,True
+what is the highest dam in the u s,LOC,LOC,True
+what color is a poison arrow frog,ENTY,ENTY,True
+what is acupuncture,DESC,DESC,True
+what is the length of the coastline of the state of alaska,NUM,LOC,False
+what is the name of neil armstrong s wife,HUM,ENTY,False
+what is hawaii s state flower,ENTY,LOC,False
+who won ms american in 1989,HUM,HUM,True
+when did the hindenberg crash,NUM,NUM,True
+what mineral helps prevent osteoporosis,ENTY,ENTY,True
+what was the last year that the chicago cubs won the world series,NUM,NUM,True
+where is perth,LOC,LOC,True
+what year did wwii begin,NUM,NUM,True
+what is the diameter of a golf ball,NUM,ENTY,False
+what is an eclipse,DESC,DESC,True
+who discovered america,HUM,HUM,True
+what is the earth s diameter,NUM,DESC,False
+which president was unmarried,HUM,HUM,True
+how wide is the milky way galaxy,NUM,NUM,True
+during which season do most thunderstorms occur,NUM,ENTY,False
+what is wimbledon,DESC,DESC,True
+what is the gestation period for a cat,NUM,NUM,True
+how far is a nautical mile,NUM,NUM,True
+who was the abolitionist who led the raid on harper s ferry in 1859,HUM,HUM,True
+what does target heart rate mean,DESC,DESC,True
+what was the first satellite to go into space,ENTY,ENTY,True
+what is foreclosure,DESC,DESC,True
+what is the major fault line near kentucky,ENTY,DESC,False
+where is the holland tunnel,LOC,LOC,True
+who wrote the hymn amazing grace,HUM,HUM,True
+what position did willie davis play in baseball,HUM,HUM,True
+what are platelets,DESC,DESC,True
+what is severance pay,DESC,DESC,True
+what is the name of roy roger s dog,ENTY,ENTY,True
+where are the national archives,LOC,LOC,True
+what is a baby turkey called,ENTY,ENTY,True
+what is poliomyelitis,DESC,DESC,True
+what is the longest bone in the human body,ENTY,ENTY,True
+who is a german philosopher,HUM,HUM,True
+what were christopher columbus three ships,ENTY,ENTY,True
+what does phi beta kappa mean,DESC,DESC,True
+what is nicotine,DESC,DESC,True
+what is another name for vitamin b1,ENTY,ENTY,True
+who discovered radium,HUM,HUM,True
+what are sunspots,DESC,DESC,True
+when was algeria colonized,NUM,NUM,True
+what baseball team was the first to make numbers part of their uniform,HUM,HUM,True
+what continent is egypt on,LOC,LOC,True
+what is the capital of mongolia,LOC,LOC,True
+what is nanotechnology,DESC,DESC,True
+in the late 1700 s british convicts were used to populate which colony,LOC,ENTY,False
+what state is the geographic center of the lower 48 states,LOC,LOC,True
+what is an obtuse angle,DESC,DESC,True
+what are polymers,DESC,DESC,True
+when is hurricane season in the caribbean,NUM,NUM,True
+where is the volcano mauna loa,LOC,LOC,True
+what is another astronomic term for the northern lights,ENTY,ENTY,True
+what peninsula is spain part of,LOC,LOC,True
+when was lyndon b johnson born,NUM,NUM,True
+what is acetaminophen,DESC,ABBR,False
+what state has the least amount of rain per year,LOC,NUM,False
+who founded american red cross,HUM,HUM,True
+what year did the milwaukee braves become the atlanta braves,NUM,NUM,True
+how fast is alcohol absorbed,NUM,NUM,True
+when is the summer solstice,NUM,NUM,True
+what is supernova,DESC,DESC,True
+where is the shawnee national forest,LOC,LOC,True
+what u s state s motto is live free or die,LOC,LOC,True
+where is the lourve,LOC,LOC,True
+when was the first stamp issued,NUM,NUM,True
+what primary colors do you mix to make orange,ENTY,ENTY,True
+how far is pluto from the sun,NUM,NUM,True
+what body of water are the canary islands in,LOC,LOC,True
+what is neuropathy,DESC,DESC,True
+where is the euphrates river,LOC,LOC,True
+what is cryptography,DESC,DESC,True
+what is natural gas composed of,ENTY,ENTY,True
+who is the prime minister of canada,HUM,HUM,True
+what french ruler was defeated at the battle of waterloo,HUM,HUM,True
+what is leukemia,DESC,DESC,True
+where did howard hughes die,LOC,LOC,True
+what is the birthstone for june,ENTY,DESC,False
+what is the sales tax in minnesota,ENTY,NUM,False
+what is the distance in miles from the earth to the sun,NUM,LOC,False
+what is the average life span for a chicken,NUM,NUM,True
+when was the first wal mart store opened,NUM,NUM,True
+what is relative humidity,DESC,DESC,True
+what city has the zip code of 35824,LOC,LOC,True
+what currency is used in algeria,ENTY,ENTY,True
+who invented the hula hoop,HUM,HUM,True
+what was the most popular toy in 1957,ENTY,ENTY,True
+what is pastrami made of,ENTY,ENTY,True
+what is the name of the satellite that the soviet union sent into space in 1957,ENTY,ENTY,True
+what city s newspaper is called the enquirer,LOC,LOC,True
+who invented the slinky,HUM,HUM,True
+what are the animals that don t have backbones called,ENTY,ENTY,True
+what is the melting point of copper,NUM,DESC,False
+where is the volcano olympus mons located,LOC,LOC,True
+who was the 23rd president of the united states,HUM,HUM,True
+what is the average body temperature,NUM,NUM,True
+what does a defibrillator do,DESC,DESC,True
+what is the effect of acid rain,DESC,DESC,True
+what year did the united states abolish the draft,NUM,NUM,True
+how fast is the speed of light,NUM,NUM,True
+what province is montreal in,LOC,LOC,True
+what new york city structure is also known as the twin towers,LOC,LOC,True
+what is fungus,DESC,ABBR,False
+what is the most frequently spoken language in the netherlands,ENTY,ENTY,True
+what is sodium chloride,DESC,ABBR,False
+what are the spots on dominoes called,ENTY,ENTY,True
+how many pounds in a ton,NUM,NUM,True
+what is influenza,DESC,ABBR,False
+what is ozone depletion,DESC,ENTY,False
+what year was the mona lisa painted,NUM,NUM,True
+what does sitting shiva mean,DESC,DESC,True
+what is the electrical output in madrid spain,ENTY,DESC,False
+which mountain range in north america stretches from maine to georgia,LOC,LOC,True
+what is plastic made of,ENTY,ENTY,True
+what is the population of nigeria,NUM,NUM,True
+what does your spleen do,DESC,DESC,True
+where is the grand canyon,LOC,LOC,True
+who invented the telephone,HUM,HUM,True
+what year did the u s buy alaska,NUM,NUM,True
+what is the name of the leader of ireland,HUM,ENTY,False
+what is phenylalanine,DESC,ABBR,False
+how many gallons of water are there in a cubic foot,NUM,NUM,True
+what are the two houses of the legislative branch,ENTY,ENTY,True
+what is sonar,DESC,DESC,True
+in poland where do most people live,LOC,LOC,True
+what is phosphorus,DESC,DESC,True
+what is the location of the sea of tranquility,LOC,LOC,True
+how fast is sound,NUM,NUM,True
+what french province is cognac produced in,LOC,LOC,True
+what is valentine s day,DESC,DESC,True
+what causes gray hair,DESC,DESC,True
+what is hypertension,DESC,DESC,True
+what is bandwidth,DESC,DESC,True
+what is the longest suspension bridge in the u s,LOC,LOC,True
+what is a parasite,DESC,DESC,True
+what is home equity,DESC,DESC,True
+what do meteorologists do,DESC,DESC,True
+what is the criterion for being legally blind,ENTY,NUM,False
+who is the tallest man in the world,HUM,HUM,True
+what are the twin cities,LOC,DESC,False
+what did edward binney and howard smith invent in 1903,ENTY,ENTY,True
+what is the statue of liberty made of,ENTY,ENTY,True
+what is pilates,DESC,DESC,True
+what planet is known as the red planet,LOC,LOC,True
+what is the depth of the nile river,NUM,LOC,False
+what is the colorful korean traditional dress called,ENTY,ENTY,True
+what is mardi gras,DESC,ABBR,False
+mexican pesos are worth what in u s dollars,NUM,LOC,False
+who was the first african american to play for the brooklyn dodgers,HUM,HUM,True
+who was the first prime minister of canada,HUM,HUM,True
+how many admirals are there in the u s navy,NUM,NUM,True
+what instrument did glenn miller play,ENTY,ENTY,True
+how old was joan of arc when she died,NUM,NUM,True
+what does the word fortnight mean,DESC,DESC,True
+what is dianetics,DESC,DESC,True
+what is the capital of ethiopia,LOC,LOC,True
+for how long is an elephant pregnant,NUM,NUM,True
+how did janice joplin die,DESC,DESC,True
+what is the primary language in iceland,ENTY,ENTY,True
+what is the difference between am radio stations and fm radio stations,DESC,DESC,True
+what is osteoporosis,DESC,DESC,True
+who was the first woman governor in the u s,HUM,HUM,True
+what is peyote,DESC,ABBR,False
+what is the esophagus used for,DESC,ABBR,False
+what is viscosity,DESC,DESC,True
+what year did oklahoma become a state,NUM,NUM,True
+what is the abbreviation for texas,ABBR,ABBR,True
+what is a mirror made out of,ENTY,ENTY,True
+where on the body is a mortarboard worn,LOC,LOC,True
+what was j f k s wife s name,HUM,HUM,True
+what does i v stand for,ABBR,ABBR,True
+what is the chunnel,DESC,DESC,True
+where is hitler buried,LOC,LOC,True
+what are antacids,DESC,DESC,True
+what is pulmonary fibrosis,DESC,DESC,True
+what are quaaludes,DESC,DESC,True
+what is naproxen,DESC,DESC,True
+what is strep throat,DESC,DESC,True
+what is the largest city in the u s,LOC,LOC,True
+what is foot and mouth disease,ENTY,ENTY,True
+what is the life expectancy of a dollar bill,NUM,NUM,True
+what do you call a professional map drawer,ENTY,ENTY,True
+what are aborigines,DESC,DESC,True
+what is hybridization,DESC,DESC,True
+what color is indigo,ENTY,ENTY,True
+how old do you have to be in order to rent a car in italy,NUM,NUM,True
+what does a barometer measure,ENTY,ENTY,True
+what color is a giraffe s tongue,ENTY,ENTY,True
+what does usps stand for,ABBR,ABBR,True
+what year did the nfl go on strike,NUM,NUM,True
+what is solar wind,DESC,DESC,True
+what date did neil armstrong land on the moon,NUM,NUM,True
+when was hiroshima bombed,NUM,NUM,True
+where is the savannah river,LOC,LOC,True
+who was the first woman killed in the vietnam war,HUM,HUM,True
+what planet has the strongest magnetic field of all the planets,LOC,LOC,True
+who is the governor of alaska,HUM,HUM,True
+what year did mussolini seize power in italy,NUM,NUM,True
+what is the capital of persia,LOC,LOC,True
+where is the eiffel tower,LOC,LOC,True
+how many hearts does an octopus have,NUM,NUM,True
+what is pneumonia,DESC,DESC,True
+what is the deepest lake in the us,LOC,DESC,False
+what is a fuel cell,DESC,DESC,True
+who was the first u s president to appear on tv,HUM,HUM,True
+where is the little league museum,LOC,LOC,True
+what are the two types of twins,ENTY,ENTY,True
+what is the brightest star,LOC,LOC,True
+what is diabetes,DESC,DESC,True
+when was president kennedy shot,NUM,NUM,True
+what is tmj,ABBR,ABBR,True
+what color is yak milk,ENTY,ENTY,True
+what date was dwight d eisenhower born,NUM,HUM,False
+what does the technical term isdn mean,ABBR,DESC,False
+why is the sun yellow,DESC,DESC,True
+what is the conversion rate between dollars and pounds,NUM,NUM,True
+when was abraham lincoln born,NUM,NUM,True
+what is the milky way,DESC,DESC,True
+what is mold,DESC,DESC,True
+what year was mozart born,NUM,NUM,True
+what is a group of frogs called,ENTY,ENTY,True
+what is the name of william penn s ship,ENTY,ENTY,True
+what is the melting point of gold,NUM,DESC,False
+what is the street address of the white house,LOC,LOC,True
+what is semolina,DESC,DESC,True
+what fruit is melba sauce made from,ENTY,ENTY,True
+what is ursa major,DESC,DESC,True
+what is the percentage of water content in the human body,NUM,ENTY,False
+how much does water weigh,NUM,NUM,True
+what was president lyndon johnson s reform program called,ENTY,HUM,False
+what is the murder rate in windsor ontario,NUM,NUM,True
+who is the only president to serve 2 non consecutive terms,HUM,HUM,True
+what is the population of australia,NUM,NUM,True
+who painted the ceiling of the sistine chapel,HUM,HUM,True
+name a stimulant,ENTY,HUM,False
+what is the effect of volcanoes on the climate,DESC,LOC,False
+what year did the andy griffith show begin,NUM,NUM,True
+what is acid rain,DESC,DESC,True
+what is the date of mexico s independence,NUM,NUM,True
+what is the location of lake champlain,LOC,LOC,True
+what is the illinois state flower,ENTY,LOC,False
+what is maryland s state bird,ENTY,ENTY,True
+what is quicksilver,DESC,DESC,True
+who wrote the divine comedy,HUM,HUM,True
+what is the speed of light,NUM,NUM,True
+what is the width of a football field,NUM,ENTY,False
+why in tennis are zero points called love,DESC,NUM,False
+what kind of dog was toto in the wizard of oz,ENTY,ENTY,True
+what is a thyroid,DESC,DESC,True
+what does ciao mean,DESC,DESC,True
+what is the only artery that carries blue blood from the heart to the lungs,ENTY,ENTY,True
+how often does old faithful erupt at yellowstone national park,NUM,NUM,True
+what is acetic acid,DESC,DESC,True
+what is the elevation of st louis mo,NUM,HUM,False
+what color does litmus paper turn when it comes into contact with a strong acid,ENTY,ENTY,True
+what are the colors of the german flag,ENTY,DESC,False
+what is the moulin rouge,DESC,DESC,True
+what soviet seaport is on the black sea,LOC,LOC,True
+what is the atomic weight of silver,NUM,DESC,False
+what currency do they use in brazil,ENTY,ENTY,True
+what are pathogens,DESC,DESC,True
+what is mad cow disease,DESC,ENTY,False
+name a food high in zinc,ENTY,HUM,False
+when did north carolina enter the union,NUM,NUM,True
+where do apple snails live,LOC,LOC,True
+what are ethics,DESC,DESC,True
+what does cpr stand for,ABBR,ABBR,True
+what is an annuity,DESC,DESC,True
+who killed john f kennedy,HUM,HUM,True
+who was the first vice president of the u s,HUM,HUM,True
+what birthstone is turquoise,ENTY,LOC,False
+who was the first us president to ride in an automobile to his inauguration,HUM,HUM,True
+how old was the youngest president of the united states,NUM,NUM,True
+when was ulysses s grant born,NUM,NUM,True
+what is muscular dystrophy,DESC,DESC,True
+who lived in the neuschwanstein castle,HUM,HUM,True
+what is propylene glycol,DESC,DESC,True
+what is a panic disorder,DESC,DESC,True
+who invented the instant polaroid camera,HUM,HUM,True
+what is a carcinogen,DESC,DESC,True
+what is a baby lion called,ENTY,ENTY,True
+what is the world s population,NUM,NUM,True
+what is nepotism,DESC,DESC,True
+what is die casting,DESC,ABBR,False
+what is myopia,DESC,DESC,True
+what is the sales tax rate in new york,NUM,NUM,True
+developing nations comprise what percentage of the world s population,NUM,NUM,True
+what is the fourth highest mountain in the world,LOC,LOC,True
+what is shakespeare s nickname,HUM,HUM,True
+what is the heaviest naturally occurring element,ENTY,ENTY,True
+when is father s day,NUM,NUM,True
+what does the acronym nasa stand for,ABBR,ABBR,True
+how long is the columbia river in miles,NUM,NUM,True
+what city s newspaper is called the star,LOC,LOC,True
+what is carbon dioxide,DESC,DESC,True
+where is the mason dixon line,LOC,LOC,True
+when was the boston tea party,NUM,NUM,True
+what is metabolism,DESC,DESC,True
+which u s a president appeared on laugh in,HUM,HUM,True
+what are cigarettes made of,ENTY,ENTY,True
+what is the capital of zimbabwe,LOC,LOC,True
+what does nasa stand for,ABBR,ABBR,True
+what is the state flower of michigan,ENTY,LOC,False
+what are semiconductors,DESC,DESC,True
+what is nuclear power,DESC,DESC,True
+what is a tsunami,DESC,DESC,True
+who is the congressman from state of texas on the armed forces committee,HUM,HUM,True
+who was president in 1913,HUM,HUM,True
+when was the first kidney transplant,NUM,NUM,True
+what are canada s two territories,LOC,HUM,False
+what was the name of the plane lindbergh flew solo across the atlantic,ENTY,HUM,False
+what is genocide,DESC,DESC,True
+what continent is argentina on,LOC,ENTY,False
+what monastery was raided by vikings in the late eighth century,ENTY,ENTY,True
+what is an earthquake,DESC,DESC,True
+where is the tallest roller coaster located,LOC,LOC,True
+what are enzymes,DESC,DESC,True
+who discovered oxygen,HUM,HUM,True
+what is bangers and mash,DESC,DESC,True
+what is the name given to the tiger at louisiana state university,ENTY,ENTY,True
+where are the british crown jewels kept,LOC,LOC,True
+who was the first person to reach the north pole,HUM,HUM,True
+what is an ulcer,DESC,DESC,True
+what is vertigo,DESC,DESC,True
+what is the spirometer test,DESC,DESC,True
+when is the official first day of summer,NUM,NUM,True
+what does the abbreviation sos mean,ABBR,DESC,False
+what is the smallest bird in britain,ENTY,NUM,False
+who invented trivial pursuit,HUM,HUM,True
+what gasses are in the troposphere,ENTY,ENTY,True
+which country has the most water pollution,LOC,LOC,True
+what is the scientific name for elephant,ENTY,ABBR,False
+who is the actress known for her role in the movie gypsy,HUM,HUM,True
+what breed of hunting dog did the beverly hillbillies own,ENTY,ENTY,True
+what is the rainiest place on earth,LOC,LOC,True
+who was the first african american to win the nobel prize in literature,HUM,HUM,True
+when is st patrick s day,NUM,NUM,True
+what was fdr s dog s name,ENTY,ENTY,True
+what colors need to be mixed to get the color pink,ENTY,ENTY,True
+what is the most popular sport in japan,ENTY,ENTY,True
+what is the active ingredient in baking soda,ENTY,NUM,False
+when was thomas jefferson born,NUM,NUM,True
+how cold should a refrigerator be,NUM,NUM,True
+when was the telephone invented,NUM,NUM,True
+what is the most common eye color,ENTY,ENTY,True
+where was the first golf course in the united states,LOC,LOC,True
+what is schizophrenia,DESC,DESC,True
+what is angiotensin,DESC,DESC,True
+what did jesse jackson organize,HUM,DESC,False
+what is new york s state bird,ENTY,ENTY,True
+what is the national park in utah,LOC,NUM,False
+what is susan b anthony s birthday,NUM,DESC,False
+in which state would you find the catskill mountains,LOC,LOC,True
+what do you call a word that is spelled the same backwards and forwards,ENTY,ENTY,True
+what are pediatricians,DESC,DESC,True
+what chain store is headquartered in bentonville arkansas,HUM,LOC,False
+what are solar cells,DESC,ENTY,False
+what is compounded interest,DESC,DESC,True
+what are capers,DESC,DESC,True
+what is an antigen,DESC,DESC,True
+what currency does luxembourg use,ENTY,ENTY,True
+what is the population of venezuela,NUM,NUM,True
+what type of polymer is used for bulletproof vests,ENTY,ENTY,True
+what currency does argentina use,ENTY,ENTY,True
+what is a thermometer,DESC,DESC,True
+what canadian city has the largest population,LOC,LOC,True
+what color are crickets,ENTY,ENTY,True
+which country gave new york the statue of liberty,LOC,LOC,True
+what was the name of the first u s satellite sent into space,ENTY,HUM,False
+what precious stone is a form of pure carbon,ENTY,ENTY,True
+what kind of gas is in a fluorescent bulb,ENTY,ENTY,True
+what is rheumatoid arthritis,DESC,DESC,True
+what river runs through rowe italy,LOC,LOC,True
+what is cerebral palsy,DESC,DESC,True
+what city is also known as the gateway to the west,LOC,LOC,True
+how far away is the moon,NUM,NUM,True
+what is the source of natural gas,ENTY,ENTY,True
+in what spacecraft did u s astronaut alan shepard make his historic 1961 flight,ENTY,HUM,False
+what is pectin,DESC,DESC,True
+what is bio diversity,DESC,DESC,True
+what s the easiest way to remove wallpaper,ENTY,ENTY,True
+what year did the titanic start on its journey,NUM,NUM,True
+how much of an apple is water,NUM,NUM,True
+who was the 22nd president of the us,HUM,HUM,True
+what is the money they use in zambia,ENTY,ENTY,True
+how many feet in a mile,NUM,NUM,True
+what is the birthstone of october,ENTY,NUM,False
+what is e coli,DESC,DESC,True
