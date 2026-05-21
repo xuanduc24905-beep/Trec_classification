@@ -206,12 +206,9 @@
                 </div>
             </div>
 
-            <div class="result-item" style="display: block;">
-                <div style="display: flex; justify-content: space-between;">
-                    <span class="result-label">Độ tin cậy:</span>
-                    <span id="confidenceValue" class="result-value"></span>
-                </div>
-                <div class="confidence-bar"><div id="confidenceFill" class="confidence-fill"></div></div>
+            <div class="result-item">
+                <span class="result-label">Softmax score:</span>
+                <span id="confidenceValue" class="result-value"></span>
             </div>
 
             <div class="result-item">
@@ -301,44 +298,29 @@
             const cnn = data.cnn, bilstm = data.bilstm;
             const winnerCnn = cnn.confidence >= bilstm.confidence;
 
-            const sideHtml = (title, r, isWinner) => {
+            const sideHtml = (title, accuracy, r) => {
                 const c = r.predicted_class;
                 const color = CLASS_COLORS[c] || '#667eea';
-                let probsRows = '';
-                Object.entries(r.all_probabilities)
-                      .sort((a,b)=>b[1]-a[1]).forEach(([cc, p]) => {
-                    const pct = (p*100).toFixed(1);
-                    const col = CLASS_COLORS[cc] || '#667eea';
-                    probsRows += `<div style="font-size:11px; padding:3px 0;">
-                        <span style="display:inline-block; width:40px; color:${col}; font-weight:600;">${cc}</span>
-                        <span style="display:inline-block; width:calc(100% - 90px); height:6px; background:#eee; border-radius:3px; overflow:hidden; vertical-align:middle;">
-                            <span style="display:block; height:100%; width:${pct}%; background:${col};"></span>
-                        </span>
-                        <span style="display:inline-block; width:40px; text-align:right;">${pct}%</span>
-                    </div>`;
-                });
                 return `
-                <div class="compare-card ${isWinner ? 'winner' : ''}">
-                    <h3>${title} ${isWinner ? '⭐' : ''}</h3>
-                    <div style="text-align:center; margin-bottom:10px;">
-                        <span class="class-badge" style="background:${color};">${c}</span>
-                        <div style="margin-top:6px; font-size:13px; color:#555;">${CLASS_NAMES[c] || c}</div>
-                        <div style="font-size:20px; font-weight:700; color:${color}; margin-top:4px;">
-                            ${(r.confidence*100).toFixed(2)}%
+                <div class="compare-card">
+                    <h3>${title} <span class="acc-tag">${accuracy}</span></h3>
+                    <div style="text-align:center; padding: 10px 0;">
+                        <div style="margin-bottom:8px;">
+                            <span class="class-badge" style="background:${color}; font-size:18px; padding: 8px 22px;">${c}</span>
                         </div>
+                        <div style="font-size:13px; color:#555;">${CLASS_NAMES[c] || c}</div>
                     </div>
-                    ${probsRows}
                 </div>`;
             };
 
             const html = `<div class="compare-grid">
-                ${sideHtml('Model 1 — CNN-Text', cnn, winnerCnn && cnn.predicted_class !== bilstm.predicted_class)}
-                ${sideHtml('Model 2 — BiLSTM + ELMo', bilstm, !winnerCnn || cnn.predicted_class !== bilstm.predicted_class)}
+                ${sideHtml('Model 1 — CNN-Text', '84.8% acc', cnn)}
+                ${sideHtml('Model 2 — BiLSTM + ELMo', '94.8% acc', bilstm)}
             </div>
-            <div style="text-align:center; padding:10px; font-size:13px; color:#666; margin-top:10px;">
+            <div style="text-align:center; padding:12px; font-size:14px; color:#444; margin-top:10px; background: ${cnn.predicted_class === bilstm.predicted_class ? '#f0fff4' : '#fff7ed'}; border-radius: 10px;">
                 ${cnn.predicted_class === bilstm.predicted_class
-                    ? `✅ Cả 2 model đồng thuận: <b>${cnn.predicted_class}</b>`
-                    : `⚠️ 2 model bất đồng — CNN: <b>${cnn.predicted_class}</b> vs BiLSTM: <b>${bilstm.predicted_class}</b>`}
+                    ? `✅ Cả 2 model đồng thuận: <b style="color:#28a745;">${cnn.predicted_class}</b>`
+                    : `⚠️ Bất đồng — CNN: <b>${cnn.predicted_class}</b> &nbsp;|&nbsp; BiLSTM: <b>${bilstm.predicted_class}</b>`}
             </div>
             <div class="result-item">
                 <span class="result-label">Ngôn ngữ:</span>
@@ -365,8 +347,8 @@
 
         function displayResult(data) {
             // Restore single-result layout (in case previous render was compare)
-            Array.from(document.querySelectorAll('#resultSection .result-item')).forEach((el, i) => {
-                el.style.display = (i === 1) ? 'block' : 'flex';
+            Array.from(document.querySelectorAll('#resultSection .result-item')).forEach(el => {
+                el.style.display = 'flex';
             });
 
             const tSection = document.getElementById('translationSection');
@@ -385,7 +367,6 @@
 
             const conf = (data.confidence * 100).toFixed(2);
             document.getElementById('confidenceValue').textContent = conf + ' %';
-            document.getElementById('confidenceFill').style.width = conf + '%';
 
             const langNames = { vi: '🇻🇳 Tiếng Việt (đã dịch sang Anh)', en: '🇬🇧 English' };
             document.getElementById('languageValue').textContent = langNames[data.language] || data.language;
