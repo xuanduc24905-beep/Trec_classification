@@ -310,28 +310,3 @@ trec-question-classification/
 
 ---
 
-## 9. Khung trả lời 13 câu CLO
-
-### CLO1 — Phân tích & Thiết kế (5 câu)
-
-1. **Đặc thù dữ liệu:** TREC 6 lớp coarse, ~5.5k train + 500 test, class imbalance nặng (ABBR 1.6%), câu hỏi ngắn (median 10 từ), có duplicate train/test.
-2. **Thách thức:** (a) Class imbalance ABBR, (b) ngữ nghĩa gần giữa ENTY/HUM/LOC, (c) dataset nhỏ dễ overfit, (d) câu hỏi phụ thuộc từ wh-word đầu câu (Who/Where/What).
-3. **Lý do chọn kiến trúc:** Xem mục §7 trên.
-4. **Vai trò tiền xử lý:** Xem mục §7 trên.
-5. **Rủi ro thực tế:** Xem mục §7 trên.
-
-### CLO2 — Triển khai & Thực nghiệm (4 câu)
-
-1. **Pipeline:** Load raw → preprocess (lowercase, regex) → stratified split 85/15 → EDA augment (M1: 2 phép; M2: 4 phép + Synthetic + AI-gen + Leakage Filter) → tokenize/pad → ELMo encode (M2) → train với AdamW/Adam + Dropout/WD → eval test → save metrics JSON.
-2. **So sánh baseline vs nâng cao:** Xem mục §5.
-3. **Ảnh hưởng Optimizer + Regularization:** Xem mục §6.1 và §6.2.
-4. **Vấn đề kỹ thuật + khắc phục:** Xem mục §7 cuối.
-
-### CLO3 — Đánh giá & Vận dụng (4 câu)
-
-1. **Phân tích định lượng:** Acc +10.00, F1 macro +0.1621, ABBR +51.72 F1 (thật, không nhờ tag), ENTY vẫn là điểm yếu nhất ở M2 (F1 0.8927).
-2. **Failure cases:** Xem mục §8.
-3. **Trade-off:** Xem mục §8 đầu.
-4. **Đề xuất cải tiến:** Xem mục §8 cuối.
-
----
