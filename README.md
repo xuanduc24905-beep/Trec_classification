@@ -335,20 +335,3 @@ trec-question-classification/
 4. **Đề xuất cải tiến:** Xem mục §8 cuối.
 
 ---
-
-## 10. Yêu cầu BẮT BUỘC đã đáp ứng (checklist)
-
-| # | Yêu cầu | Trạng thái |
-|---|---|---|
-| 1 | ≥ 2 mô hình (Baseline + Nâng cao) | ✅ M1 CNN Kim + M2 BiLSTM+ELMo+Attn |
-| 2 | Nâng cao có cải tiến rõ ràng (kiến trúc/loss/strategy) | ✅ Cả 3 đều có (xem §5) |
-| 3 | So sánh ≥ 2 optimizer | ✅ SGD vs Adam vs AdamW (§6.1) |
-| 4 | So sánh ≥ 2 regularization | ✅ Dropout vs WD vs Both vs None (§6.2) |
-| 5 | Learning curves train/val | ✅ model1_learning_curves.png, model2_learning_curves.png |
-| 6 | Báo cáo số tham số | ✅ M1: 1,319,046 / M2: 4,077,062 |
-| 7 | Bảng + biểu đồ + phân tích | ✅ Có đầy đủ |
-| 8 | Trả lời 13 câu CLO | ✅ Khung sẵn ở §9 |
-
----
-
-
